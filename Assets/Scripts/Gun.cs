@@ -13,8 +13,8 @@ public class Gun : MonoBehaviour
     [Range(1,10)]
     private int damage = 1;
 
-    [SerializeField] 
-    private Transform firePiont;
+    //[SerializeField] 
+    //private Transform firePiont;
 
     private float timer;
 
@@ -33,10 +33,13 @@ public class Gun : MonoBehaviour
 
     private void FireGun()
     {
-        Debug.DrawRay(firePiont.position,firePiont.forward * 100, Color.red, 2f);
-        Ray ray = new Ray(firePiont.position, firePiont.forward);
+        //Ray ray = new Ray(firePiont.position, firePiont.forward);
         RaycastHit hitInfo;
+        
+        Ray ray = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
+        Debug.DrawRay(ray.origin,ray.direction * 100, Color.red, 2f);
 
+        
         if (Physics.Raycast(ray, out hitInfo, 100))
         {
             var health = hitInfo.collider.GetComponent<Health>();

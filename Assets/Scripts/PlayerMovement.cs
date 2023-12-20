@@ -6,9 +6,11 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private CharacterController characterController;
-    [SerializeField] private float moveSpeed = 100;
     private Animator animator;
-    [SerializeField]private float turnSpeed = 5f;
+    
+    [SerializeField] private float forwardMoveSpeed = 7.5f;
+    [SerializeField] private float backwardMoveSpeed = 3f;
+    [SerializeField]private float turnSpeed = 150f;
 
     private void Awake()
     {
@@ -29,7 +31,8 @@ public class PlayerMovement : MonoBehaviour
 
        if (vertical != 0)
        {
-           characterController.SimpleMove(transform.forward * moveSpeed * vertical);
+           float moveSpeedToUse = vertical > 0 ? forwardMoveSpeed : backwardMoveSpeed;
+           characterController.SimpleMove(transform.forward * moveSpeedToUse * vertical);
            
        }
     }
