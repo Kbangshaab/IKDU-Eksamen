@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     
     [SerializeField] private float forwardMoveSpeed = 7.5f;
     [SerializeField] private float backwardMoveSpeed = 3f;
-    [SerializeField]private float turnSpeed = 150f;
+    [SerializeField] private float turnSpeed = 150f;
 
     private void Awake()
     {
