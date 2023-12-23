@@ -9,6 +9,7 @@ public class EnemyMovement : MonoBehaviour
     private AggroDetection aggroDetection;
     private Animator animator;
     private NavMeshAgent navMeshAgent;
+    
     private Transform target;
 
     private void Awake()

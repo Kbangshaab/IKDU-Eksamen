@@ -6,7 +6,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
-    private float attackRefreshRate;
+    private float attackRefreshRate = 1.5f;
     
     private AggroDetection aggroDetection;
     private Health healthTarget;
@@ -18,9 +18,9 @@ public class Enemy : MonoBehaviour
         aggroDetection.OnAggro += AggroDetectionOnOnAggro;
     }
 
-    private void AggroDetectionOnOnAggro(Transform obj)
+    private void AggroDetectionOnOnAggro(Transform target)
     {
-        Health health = target.GetComponment<Health>();
+        Health health = target.GetComponent<Health>();
         if (health != null)
         {
             healthTarget = health;
